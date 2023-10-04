@@ -1,9 +1,10 @@
-/* MovieCard.scss */
 @import "/src/common/colors.scss";
+
 .card-item {
   width: 300px;
   padding: 20px;
   border: 2px solid transparent;
+  cursor: pointer;
   border-radius: 10px;
   margin: 20px;
   transition: border-color 0.3s;
