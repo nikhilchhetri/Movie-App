@@ -1,0 +1,32 @@
+/* MovieCard.scss */
+@import "/src/common/colors.scss";
+.card-item {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin: 20px;
+  transition: border-color 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  &:hover {
+    border-color: $secondary-color;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.card-info {
+  margin-top: 10px;
+  h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: $font-secondary;
+  }
+  p {
+    margin: 10px 0 0;
+    color: $font-primary;
+  }
+}
