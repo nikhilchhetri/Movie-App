@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieCard.scss";
 
-const MovieCard = ({ Poster, Title, Type, Year, imdbID }) => {
+const MovieCard = ({ Poster, Title, Year }) => {
   return (
     <div className="card-item">
       <div className="card-inner">

@@ -1,10 +1,41 @@
-@import "/src/common/colors.scss";
+// @import "/src/common/colors.scss";
+// .footer {
+//   background: $secondary-color;
+//   height: 72px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   color: $font-primary;
+//   flex-direction: column;
+// }
+
+// Footer.scss
+
+$footer-background-color: #1a242f; // Background color for the footer
+$footer-text-color: #ffffff; // Text color for the footer
+
 .footer {
-  background: $secondary-color;
-  height: 72px;
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+  padding: 10px 0; // Add padding for spacing
+
+  // Set position to fixed for a footer that sticks to the bottom
+  position: fixed;
+  bottom: 0;
+  width: 100%; // Make the footer span the entire width
+
+  // Center the content horizontally
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $font-primary;
-  flex-direction: column;
+
+  // Style the content
+  div {
+    text-align: center;
+
+    &:first-child {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  }
 }

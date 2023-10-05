@@ -1,28 +1,22 @@
 import React, { useEffect } from "react";
-import { movieApi } from "../../common/apis/movieApi";
-import { APIKey } from "../../common/apis/MovieApiKey";
-import MovieListings from "../MovieListings/MovieListings";
 import { useDispatch } from "react-redux";
-import { addMovie } from "../../features/movies/movieSlice";
+import {
+  fetchAsyncMovies,
+  fetchAsyncShows,
+} from "../../features/movies/movieSlice";
+import MovieListings from "../MovieListings/MovieListings";
 
 const Home = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
-    const fetchMovieData = async () => {
-      const response = await movieApi
-        .get(`?apikey=${APIKey}&type=movie&s=house`)
-        .catch((err) => {
-          console.log("Err", err);
-        });
-
-      dispatch(addMovie(response.data.Search));
-    };
-    fetchMovieData();
+    dispatch(fetchAsyncMovies());
+    dispatch(fetchAsyncShows());
   }, [dispatch]);
 
   return (
     <div>
+      <input type="text" placeholder="Search for movies or shows" />
+      <button>Search</button>
       <div className="banner-img"></div>
       <MovieListings />
     </div>
