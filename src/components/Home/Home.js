@@ -5,6 +5,7 @@ import {
   fetchAsyncShows,
 } from "../../features/movies/movieSlice";
 import MovieListings from "../MovieListings/MovieListings";
+import "./Home.scss"; // Import the SCSS file
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,9 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="home-container">
+      {" "}
+      {/* Apply the "home-container" class */}
       <input type="text" placeholder="Search for movies or shows" />
       <button>Search</button>
       <div className="banner-img"></div>
