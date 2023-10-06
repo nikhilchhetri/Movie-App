@@ -22,7 +22,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/">Movie App</Link>
+        <Link to="/">
+          <img src="https://img.logoipsum.com/297.svg" alt="Movie-app" />
+        </Link>
       </div>
       <div className="search-input">
         <form onSubmit={submitHandler}>
