@@ -3,23 +3,25 @@ import { useDispatch } from "react-redux";
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
+  removeSelectedMoviveOrShow,
 } from "../../features/movies/movieSlice";
 import MovieListings from "../MovieListings/MovieListings";
-import "./Home.scss"; // Import the SCSS file
+import "./Home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const movieSearchText = "Avengers";
+  const showMovieText = "Breaking";
   useEffect(() => {
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncMovies(movieSearchText));
+    dispatch(fetchAsyncShows(showMovieText));
+    return () => {
+      dispatch(removeSelectedMoviveOrShow());
+    };
   }, [dispatch]);
 
   return (
     <div className="home-container">
-      {" "}
-      {/* Apply the "home-container" class */}
-      <input type="text" placeholder="Search for movies or shows" />
-      <button>Search</button>
       <div className="banner-img"></div>
       <MovieListings />
     </div>

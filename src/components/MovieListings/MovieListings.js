@@ -9,7 +9,11 @@ const MovieListings = () => {
   const movies = useSelector((state) => state.movies.movies);
   const shows = useSelector((state) => state.movies.shows);
 
-  return (
+  return movies === undefined || shows === undefined ? (
+    <div className="not-found">
+      <h1>No results found</h1>
+    </div>
+  ) : (
     <div>
       <div className="movie-wrapper">
         <div className="movie-list">

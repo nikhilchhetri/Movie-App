@@ -5,7 +5,7 @@ import { APIKey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async (searchText = "house") => {
+  async (searchText) => {
     const response = await movieApi.get(
       `?apikey=${APIKey}&type=movie&s=${searchText}`
     );
@@ -14,7 +14,7 @@ export const fetchAsyncMovies = createAsyncThunk(
 );
 export const fetchAsyncShows = createAsyncThunk(
   "movies/fetchAsyncShows",
-  async (searchText = "house") => {
+  async (searchText) => {
     const response = await movieApi.get(
       `?apikey=${APIKey}&type=series&s=${searchText}`
     );
@@ -39,17 +39,14 @@ const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovie: (state, { payload }) => {
-      state.movies = payload;
-    },
-    addSearchText: (state, { payload }) => {
-      state.searchText = payload;
+    removeSelectedMoviveOrShow: (state, { payload }) => {
+      state.selectedMovieOrShow = {};
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAsyncMovies.pending, () => {
-        console.log("Pending");
+        // console.log("Pending");
       })
       .addCase(fetchAsyncMovies.fulfilled, (state, { payload }) => {
         return { ...state, movies: payload };
@@ -66,5 +63,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { addMovie, addSearchText } = movieSlice.actions;
+export const { removeSelectedMoviveOrShow } = movieSlice.actions;
 export default movieSlice.reducer;
