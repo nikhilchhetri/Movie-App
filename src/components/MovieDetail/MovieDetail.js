@@ -10,7 +10,6 @@ const MovieDetail = () => {
     dispatch(fetchAsyncMoviesOrShows(imdbID));
   }, [dispatch, imdbID]);
   const data = useSelector((state) => state.movies.selectedMovieOrShow);
-  console.log(data);
 
   return (
     <div className="movie-section">
